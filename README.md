@@ -1,6 +1,6 @@
 # Chromed Out Hipchat
 
-All for the greater good.
+I'm pretty good at documentation. Install it [here](https://chrome.google.com/webstore/detail/jkkfgpedgbikbjelfebhcaicfcgaokhp).
 
 ## Copyright
 
