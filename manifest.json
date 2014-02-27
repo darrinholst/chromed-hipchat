@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Chromed Hipchat",
+  "version": "1.0",
+  "description": "Some tweaks to hipchat.com",
+  "permissions": [
+    "https://www.hipchat.com/"
+  ],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["https://*.hipchat.com/chat"],
+      "css": ["css/chromed.css"],
+      "js": [
+        "javascripts/jquery.js",
+        "javascripts/chooser.js",
+        "javascripts/chromed.js"
+      ]
+    }
+  ]
+}
+
+
