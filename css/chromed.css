@@ -19,6 +19,7 @@
 
 .chromed-hipchat-emoticons input {
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .chromed-hipchat-emoticons ul {
@@ -33,5 +34,12 @@
   width: 34px;
   height: 34px;
   overflow: hidden;
+  text-align: center;
+  border: 2px solid white;
+}
+
+.chromed-hipchat-emoticons li.selected {
+  border: 2px solid #359bd3;
+  border-radius: 5px;
 }
 
