@@ -1,19 +1,9 @@
 EmoticonChooser = function() {
-  var emoticons = new Emoticons().all(),
+  var $container = $(Templates.emoticonChooser()).hide().appendTo($('body'));
 
-      buildContainer = function() {
-        var container = $('<div>').hide().addClass('chromed-hipchat-emoticons'),
-            filter = $('<input class="emoticon-filter" type="text">').appendTo(container),
-            list = $('<ul>').appendTo(container);
-
-        for(var i = 0, j = emoticons.length; i < j; i++) {
-          $('<li><a href="#" class="chromed-hipchat-emoticon" title="' + emoticons[i][0] + '"><img src="' + emoticons[i][1] + '"></a></li>').appendTo(list);
-        }
-
-        return container;
-      },
-
-      $container = buildContainer().appendTo($('body')),
+      new Emoticons().fetchAll(function(emoticons) {
+        $container.append(Templates.emoticonList({emoticons: emoticons}));
+      });
 
       show = function() {
         $container.show().find('input').val('').focus();

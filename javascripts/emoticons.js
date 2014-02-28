@@ -150,9 +150,14 @@ var Emoticons = function() {
 
       all = function() {
         return staticEmoticons;
+      },
+
+      fetchAll = function(success) {
+        success(staticEmoticons);
       };
 
     return {
-      all: all
+      all: all,
+      fetchAll: fetchAll
     }
 }

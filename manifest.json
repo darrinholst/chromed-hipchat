@@ -14,6 +14,8 @@
       "js": [
         "javascripts/jquery.js",
         "javascripts/jquery.plugins.js",
+        "javascripts/underscore.js",
+        "javascripts/templates.js",
         "javascripts/emoticons.js",
         "javascripts/emoticon_chooser.js",
         "javascripts/chromed.js"
