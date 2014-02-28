@@ -1,7 +1,7 @@
 Templates = {
   emoticonChooser: _.template([
     '<div class="chromed-hipchat-emoticons">',
-    '  <input class="emoticon-filter" type="text">',
+    '  <input class="emoticon-filter" type="text" placeholder="Filter">',
     '</div>'
   ].join("\n")),
 
@@ -9,8 +9,8 @@ Templates = {
     '<ul>',
     '  <% _.each(emoticons, function(emoticon) { %>',
     '    <li>',
-    '      <a href="#" class="chromed-hipchat-emoticon" title="<%= emoticon[0] %>">',
-    '        <img src="<%= emoticon[1] %>">',
+    '      <a href="#" class="chromed-hipchat-emoticon" title="<%= emoticon.shortcut %>">',
+    '        <img src="<%= emoticon.url %>">',
     '      </a>',
     '    </li>',
     '  <% }); %>',

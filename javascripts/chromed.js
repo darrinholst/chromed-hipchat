@@ -25,7 +25,7 @@
 
       pasteEmoticon = function(emoticon) {
         var messageInput = $('#message_input');
-        messageInput.val(messageInput.val() + emoticon).putCursorAtEnd();
+        messageInput.val(messageInput.val() + '(' + emoticon + ')').putCursorAtEnd();
         chooser.hide();
       },
 

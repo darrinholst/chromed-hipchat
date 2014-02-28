@@ -1,0 +1,14 @@
+body {
+  margin: 0 50px;
+}
+
+#message {
+  min-height: 50px;
+  line-height: 50px;
+  font-size: 30px;
+}
+
+input[type=text] {
+  width: 300px;
+}
+

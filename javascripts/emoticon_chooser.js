@@ -1,8 +1,10 @@
 EmoticonChooser = function() {
-  var $container = $(Templates.emoticonChooser()).hide().appendTo($('body'));
+  var $container = $(Templates.emoticonChooser()).hide().appendTo($('#chats'));
 
-      new Emoticons().fetchAll(function(emoticons) {
-        $container.append(Templates.emoticonList({emoticons: emoticons}));
+      chrome.extension.sendMessage({command: 'getOption', name: 'auth_token'}, function(authToken) {
+        new Emoticons().fetchAll(authToken, function(emoticons) {
+          $container.append(Templates.emoticonList({emoticons: emoticons}));
+        });
       });
 
       show = function() {
