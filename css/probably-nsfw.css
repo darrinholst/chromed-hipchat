@@ -1,0 +1,9 @@
+body .preview img {
+  -webkit-filter: blur(15px);
+}
+
+body .preview img:hover {
+  transition: -webkit-filter .5s;
+  -webkit-filter: none;
+}
+

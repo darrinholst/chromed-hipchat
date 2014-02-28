@@ -10,7 +10,10 @@
     {
       "all_frames": true,
       "matches": ["https://*.hipchat.com/chat"],
-      "css": ["css/chromed.css"],
+      "css": [
+        "css/chromed.css",
+        "css/probably-nsfw.css"
+      ],
       "js": [
         "javascripts/jquery.js",
         "javascripts/jquery.plugins.js",
