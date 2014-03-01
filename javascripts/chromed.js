@@ -34,6 +34,12 @@
         $(document).bind('keydown', 'esc', abort);
         $(document).on('keyup', '.chromed-hipchat-emoticons input', filterEmoticons);
         $(document).on('click', '.chromed-hipchat-emoticon', emoticonClicked);
+
+        chrome.extension.sendMessage({command: 'getOptions'}, function(options) {
+          if(options.probably_nsfw) {
+            $('body').addClass('probably-nsfw');
+          }
+        });
       };
 
   initialize();

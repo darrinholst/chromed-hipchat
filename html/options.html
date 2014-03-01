@@ -4,17 +4,32 @@
     <link rel="stylesheet" type="text/css" href="../css/options.css" />
   </head>
   <body>
-    <div id="message"></div>
+
+    <p class="description">
+      Providing an authorization token allows us to retrieve the current and your custom list of emoticons. If you don't want to, it's cool; you'll just get a static, possibly outdated list of emoticons. Get yours <a href="https://www.hipchat.com/account/api">here</a>.
+    </p>
 
     <p>
       <label for="auth_token">API Authorization Token:</label>
       <input type="text" id="auth_token">
-      <span>Get one <a href="https://www.hipchat.com/account/api">here</a></span>
+    </p>
+
+    <p class="description">
+      Let's face it, the images that end up on hipchat probably aren't safe for work. We'll automatically blur all images and then let you see them when you hover over them...after you look over your shoulder to make sure nobody is looking.
     </p>
 
     <p>
+      <label for="probably_nsfw">
+        <input type="checkbox" id="probably_nsfw">
+        Probably NSFW
+      </label>
+    </p>
+
+    <p class="description">
       <button id="save">Save</button>
     </p>
+
+    <div id="message"></div>
 
     <script src="../javascripts/options.js"></script>
   </body>

@@ -1,7 +1,8 @@
 (function() {
   var reloadOptions = function() {
-        chrome.extension.sendMessage({command: "getOption", name: "auth_token"}, function(response) {
-          document.getElementById("auth_token").value = response;
+        chrome.extension.sendMessage({command: "getOptions"}, function(response) {
+          document.getElementById("auth_token").value = response.auth_token || '';
+          document.getElementById("probably_nsfw").checked = response.probably_nsfw;
         });
       },
 
@@ -15,9 +16,12 @@
       },
 
       saveOptions = function() {
-        var authToken = document.getElementById("auth_token").value;
+        var options = {
+          auth_token: document.getElementById("auth_token").value,
+          probably_nsfw: document.getElementById("probably_nsfw").checked
+        }
 
-        chrome.extension.sendMessage({command: "setOption", name: "auth_token", value: authToken}, function() {
+        chrome.extension.sendMessage({command: "setOptions", options: options}, function() {
           showMessage("Options Saved");
         });
       },

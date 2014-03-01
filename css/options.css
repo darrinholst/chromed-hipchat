@@ -1,5 +1,10 @@
 body {
-  margin: 0 50px;
+  margin: 0 30px;
+  font-family: Helvetica, sans-serif;
+}
+
+p.description {
+  margin-top: 50px;
 }
 
 #message {
@@ -10,5 +15,9 @@ body {
 
 input[type=text] {
   width: 300px;
+}
+
+button {
+  padding: 5px 10px;
 }
 

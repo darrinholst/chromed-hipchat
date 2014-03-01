@@ -1,9 +1,8 @@
-body .preview img {
+body.probably-nsfw .preview img {
   -webkit-filter: blur(15px);
 }
 
-body .preview img:hover {
-  transition: -webkit-filter .5s;
+body.probably-nsfw .preview img:hover {
   -webkit-filter: none;
 }
 
