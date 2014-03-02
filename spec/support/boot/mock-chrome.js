@@ -1,0 +1,6 @@
+chrome = {
+  extension: {
+    sendMessage: function() {
+    }
+  }
+}

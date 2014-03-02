@@ -57,13 +57,13 @@ helpers:
 # Boot directory path. Your boot_files must be returned relative to this path.
 # Default: Built in boot file
 #
-#boot_dir: spec/boot
+boot_dir: spec/support/boot
 
 # boot_files
 #
 # Return an array of filepaths relative to boot_dir to include in order to boot Jasmine
 # Default: Built in boot file
 #
-#boot_files:
-   #- '**/*.js'
+boot_files:
+   - '**/*.js'
 
