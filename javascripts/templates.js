@@ -11,6 +11,7 @@ ChromedHipchatExtension.Templates = {
     '    <li>',
     '      <a href="#" class="chromed-hipchat-emoticon" title="<%= emoticon.shortcut %>">',
     '        <img src="<%= emoticon.url %>">',
+    '        <span>(<%= emoticon.shortcut %>)</span>',
     '      </a>',
     '    </li>',
     '  <% }); %>',

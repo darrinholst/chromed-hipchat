@@ -10,10 +10,10 @@
   background: white;
   position: absolute;
   z-index: 9999;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  height: 150px;
+  right: 5px;
+  bottom: 5px;
+  height: 250px;
+  width: 471px;
 }
 
 #chats .chromed-hipchat-emoticons input {
@@ -32,16 +32,38 @@
   margin: 0;
   margin-right: 5px;
   margin-bottom: 5px;
-  padding: 2px;
-  width: 34px;
-  height: 34px;
+  padding: 4px;
+  width: 80px;
+  height: 48px;
   overflow: hidden;
   text-align: center;
-  border: 2px solid white;
+  position: relative;
+  border: 1px solid white;
+  text-overflow:ellipsis;
+}
+
+#chats .chromed-hipchat-emoticons li img {
+  max-height: 24px;
+}
+
+#chats .chromed-hipchat-emoticons li a {
+  color: #777;
+  text-decoration: none;
+  text-overflow:ellipsis;
+}
+
+#chats .chromed-hipchat-emoticons li span {
+  font-size: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 4px;
+  right: 4px;
+  text-align: center;
+  display: inline-block;
+  text-overflow:ellipsis;
 }
 
 #chats .chromed-hipchat-emoticons li.selected {
-  border: 2px solid #359bd3;
-  border-radius: 5px;
+  border: 1px dotted #999;
 }
 

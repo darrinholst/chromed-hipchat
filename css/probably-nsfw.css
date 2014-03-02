@@ -1,3 +1,7 @@
+body.probably-nsfw .preview .image {
+  margin: 15px !important;
+}
+
 body.probably-nsfw .preview img {
   -webkit-filter: blur(15px);
 }
