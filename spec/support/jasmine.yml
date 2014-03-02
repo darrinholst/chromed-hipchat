@@ -26,7 +26,7 @@ src_files:
 # Spec directory path. Your spec_files must be returned relative to this path.
 # Default: spec/javascripts
 #
-spec_dir: spec
+#spec_dir: spec/javascripts
 
 # spec_files
 #
@@ -57,7 +57,7 @@ helpers:
 # Boot directory path. Your boot_files must be returned relative to this path.
 # Default: Built in boot file
 #
-boot_dir: spec/support/boot
+boot_dir: spec/javascripts/support
 
 # boot_files
 #
