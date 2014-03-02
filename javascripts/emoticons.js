@@ -157,7 +157,7 @@ ChromedHipchatExtension.Emoticons = function() {
           dataType: 'json',
 
           error: function() {
-            //TODO: do something
+            callback(staticEmoticons, true)
           },
 
           success: function(data) {
@@ -170,7 +170,7 @@ ChromedHipchatExtension.Emoticons = function() {
               }
             }
 
-            callback(results);
+            callback(results, false);
           }
         });
       },
@@ -179,7 +179,7 @@ ChromedHipchatExtension.Emoticons = function() {
         if(authToken) {
           _fetch(authToken, success);
         } else {
-          success(staticEmoticons);
+          success(staticEmoticons, true);
         }
       };
 

@@ -16,6 +16,16 @@
   width: 471px;
 }
 
+#chats .chromed-hipchat-emoticons .warning {
+  display: block;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  border-radius: 5px;
+  color: #a94442;
+  padding: 5px 10px;
+  margin-bottom: 15px
+}
+
 #chats .chromed-hipchat-emoticons input {
   width: 256px;
   margin-bottom: 15px;

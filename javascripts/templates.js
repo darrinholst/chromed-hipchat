@@ -6,6 +6,7 @@ ChromedHipchatExtension.Templates = {
   ].join("\n")),
 
   emoticonList: _.template([
+    '<% if(isStatic) {%><span class="warning">You\'re seeing a static list of emoticons, check your api key <a href="<%= optionsUrl %>" target="_blank">here</a>.</span><% } %>',
     '<ul>',
     '  <% _.each(emoticons, function(emoticon) { %>',
     '    <li>',

@@ -1,6 +1,8 @@
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
   if(request.command === 'getOptions') {
-    sendResponse(JSON.parse(localStorage['options'] || "{}"));
+    var options = JSON.parse(localStorage['options'] || '{}');
+    options.optionsPage = chrome.extension.getURL('html/options.html');
+    sendResponse(options);
   }
 
   if(request.command === 'setOptions') {

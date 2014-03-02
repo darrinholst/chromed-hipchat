@@ -3,8 +3,12 @@ ChromedHipchatExtension.EmoticonChooser = function() {
       justShown = false;
 
       chrome.extension.sendMessage({command: 'getOptions'}, function(options) {
-        new ChromedHipchatExtension.Emoticons().fetchAll(options.auth_token, function(emoticons) {
-          $container.append(ChromedHipchatExtension.Templates.emoticonList({emoticons: emoticons}));
+        new ChromedHipchatExtension.Emoticons().fetchAll(options.auth_token, function(emoticons, isStatic) {
+          $container.append(ChromedHipchatExtension.Templates.emoticonList({
+            emoticons: emoticons,
+            isStatic: isStatic,
+            optionsUrl: options.optionsPage
+          }));
         });
       });
 

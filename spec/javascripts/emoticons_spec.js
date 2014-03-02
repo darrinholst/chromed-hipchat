@@ -8,8 +8,19 @@ describe('Emoticons', function() {
   });
 
   it('returns a static list if auth token is not given', function(done) {
-    new ChromedHipchatExtension.Emoticons().fetchAll(null, function(emoticons) {
+    new ChromedHipchatExtension.Emoticons().fetchAll(null, function(emoticons, isStatic) {
       expect(emoticons.length).toEqual(146);
+      expect(isStatic).toEqual(true);
+      done();
+    });
+  });
+
+  it('returns a static list if the call to the api fails', function(done) {
+    jasmine.Ajax.stubRequest('https://api.hipchat.com/v2/emoticon?auth_token=authToken').andReturn({status: 401});
+
+    new ChromedHipchatExtension.Emoticons().fetchAll('authToken', function(emoticons, isStatic) {
+      expect(emoticons.length).toEqual(146);
+      expect(isStatic).toEqual(true);
       done();
     });
   });
@@ -19,8 +30,9 @@ describe('Emoticons', function() {
       'responseText': JSON.stringify({links: {}, items: [{url: 'url1', shortcut: 'shortcut1'}, {url: 'url2', shortcut: 'shortcut2'}, {url: 'url3', shortcut: 'shortcut3'}]})
     });
 
-    new ChromedHipchatExtension.Emoticons().fetchAll('authToken', function(emoticons) {
+    new ChromedHipchatExtension.Emoticons().fetchAll('authToken', function(emoticons, isStatic) {
       expect(emoticons.length).toEqual(3);
+      expect(isStatic).toEqual(false);
       done();
     });
   });
