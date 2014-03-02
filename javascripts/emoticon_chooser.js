@@ -1,14 +1,19 @@
-EmoticonChooser = function() {
-  var $container = $(Templates.emoticonChooser()).hide().appendTo($('#chats'));
+ChromedHipchatExtension.EmoticonChooser = function() {
+  var $container = $(ChromedHipchatExtension.Templates.emoticonChooser()).hide().appendTo($('#chats')),
+      justShown = false;
 
       chrome.extension.sendMessage({command: 'getOptions'}, function(options) {
-        new Emoticons().fetchAll(options.auth_token, function(emoticons) {
-          $container.append(Templates.emoticonList({emoticons: emoticons}));
+        new ChromedHipchatExtension.Emoticons().fetchAll(options.auth_token, function(emoticons) {
+          $container.append(ChromedHipchatExtension.Templates.emoticonList({emoticons: emoticons}));
         });
       });
 
       show = function() {
-        $container.show().find('input').val('').focus();
+        $container.find('li').show().removeClass('selected')
+        $container.show().find('input').val('');
+        setTimeout(function() {$container.find('input').focus();}, 200);
+        filter();
+        justShown = true;
       },
 
       hide = function() {
@@ -16,13 +21,23 @@ EmoticonChooser = function() {
         $('textarea').focus();
       },
 
+      wasImmediatelyClosed = function() {
+        return justShown;
+      },
+
+      reset = function() {
+        justShown = false;
+      },
+
       filter = function(keyCode) {
         switch(keyCode) {
           case 13: return $container.find('li.selected a').attr('title'); //return
+          case 27: return; //escape
           case 37: $container.find('li.selected').removeClass('selected').prevOrCurrent(':visible').addClass('selected');return; //left
           case 39: $container.find('li.selected').removeClass('selected').nextOrCurrent(':visible').addClass('selected');return; //right
         }
 
+        justShown = false;
         var currentValue = $container.find('input').val();
 
         $container.find('li').each(function() {
@@ -37,6 +52,8 @@ EmoticonChooser = function() {
   return {
     hide: hide,
     show: show,
-    filter: filter
+    filter: filter,
+    wasImmediatelyClosed: wasImmediatelyClosed,
+    reset: reset
   }
 };

@@ -18,6 +18,7 @@
         "javascripts/vendor/jquery.js",
         "javascripts/vendor/jquery.plugins.js",
         "javascripts/vendor/underscore.js",
+        "javascripts/namespace.js",
         "javascripts/templates.js",
         "javascripts/emoticons.js",
         "javascripts/emoticon_chooser.js",

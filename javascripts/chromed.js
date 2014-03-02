@@ -1,13 +1,16 @@
-(function() {
-  var chooser = new EmoticonChooser(),
-
+ChromedHipchatExtension.Chromed = function(chooser) {
+  var chooser = chooser || new ChromedHipchatExtension.EmoticonChooser(),
       showEmoticonChooser = function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        chooser.show();
+        if(chooser.wasImmediatelyClosed()) {
+          chooser.reset();
+        } else {
+          e.preventDefault();
+          e.stopPropagation();
+          chooser.show();
+        }
       },
 
-      abort = function() {
+      abort = function(e) {
         chooser.hide();
       },
 
@@ -42,6 +45,14 @@
         });
       };
 
-  initialize();
-})();
+  return {
+    initialize: initialize
+  }
+};
+
+$(function() {
+  if(typeof jasmine === 'undefined') {
+    new ChromedHipchatExtension.Chromed().initialize();
+  }
+});
 

@@ -8,7 +8,7 @@ describe('Emoticons', function() {
   });
 
   it('returns a static list if auth token is not given', function(done) {
-    new Emoticons().fetchAll(null, function(emoticons) {
+    new ChromedHipchatExtension.Emoticons().fetchAll(null, function(emoticons) {
       expect(emoticons.length).toEqual(146);
       done();
     });
@@ -19,7 +19,7 @@ describe('Emoticons', function() {
       'responseText': JSON.stringify({links: {}, items: [{url: 'url1', shortcut: 'shortcut1'}, {url: 'url2', shortcut: 'shortcut2'}, {url: 'url3', shortcut: 'shortcut3'}]})
     });
 
-    new Emoticons().fetchAll('authToken', function(emoticons) {
+    new ChromedHipchatExtension.Emoticons().fetchAll('authToken', function(emoticons) {
       expect(emoticons.length).toEqual(3);
       done();
     });
@@ -34,7 +34,7 @@ describe('Emoticons', function() {
       'responseText': JSON.stringify({links: {}, items: [{url: 'url1', shortcut: 'shortcut1'}, {url: 'url2', shortcut: 'shortcut2'}, {url: 'url3', shortcut: 'shortcut3'}]})
     });
 
-    new Emoticons().fetchAll('authToken', function(emoticons) {
+    new ChromedHipchatExtension.Emoticons().fetchAll('authToken', function(emoticons) {
       expect(emoticons.length).toEqual(6);
       done();
     });

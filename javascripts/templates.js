@@ -1,4 +1,4 @@
-Templates = {
+ChromedHipchatExtension.Templates = {
   emoticonChooser: _.template([
     '<div class="chromed-hipchat-emoticons">',
     '  <input class="emoticon-filter" type="text" placeholder="Filter">',

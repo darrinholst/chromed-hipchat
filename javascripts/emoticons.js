@@ -1,4 +1,4 @@
-var Emoticons = function() {
+ChromedHipchatExtension.Emoticons = function() {
   var staticEmoticons = [
         {shortcut: "allthethings", url: "https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/allthethings.png"},
         {shortcut: "android", url: "https://dujrsrsgsd3nh.cloudfront.net/img/emoticons/android.png"},

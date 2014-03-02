@@ -1,6 +1,7 @@
 chrome = {
   extension: {
-    sendMessage: function() {
+    sendMessage: function(message, callback) {
+      callback({});
     }
   }
-}
+};
