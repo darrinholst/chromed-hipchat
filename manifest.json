@@ -15,9 +15,9 @@
         "css/probably-nsfw.css"
       ],
       "js": [
-        "javascripts/jquery.js",
-        "javascripts/jquery.plugins.js",
-        "javascripts/underscore.js",
+        "javascripts/vendor/jquery.js",
+        "javascripts/vendor/jquery.plugins.js",
+        "javascripts/vendor/underscore.js",
         "javascripts/templates.js",
         "javascripts/emoticons.js",
         "javascripts/emoticon_chooser.js",
