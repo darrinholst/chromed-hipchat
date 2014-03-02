@@ -1,11 +1,16 @@
-GEM
-  remote: https://rubygems.org/
+GIT
+  remote: https://github.com/pivotal/jasmine-gem.git
+  revision: a0aff0490a45755eadbc918a40cb49c87631cbf2
   specs:
     jasmine (2.0.0)
       jasmine-core (~> 2.0.0)
       phantomjs
       rack (>= 1.2.1)
       rake
+
+GEM
+  remote: https://rubygems.org/
+  specs:
     jasmine-core (2.0.0)
     json (1.8.1)
     phantomjs (1.9.7.0)
@@ -16,5 +21,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jasmine
+  jasmine!
   json
