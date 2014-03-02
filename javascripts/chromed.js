@@ -33,12 +33,13 @@ ChromedHipchatExtension.Chromed = function(chooser) {
       },
 
       initialize = function() {
-        $(document).bind('keydown', '(', showEmoticonChooser);
         $(document).bind('keydown', 'esc', abort);
         $(document).on('keyup', '.chromed-hipchat-emoticons input', filterEmoticons);
         $(document).on('click', '.chromed-hipchat-emoticon', emoticonClicked);
 
         chrome.extension.sendMessage({command: 'getOptions'}, function(options) {
+          $(document).bind('keydown', options.emoticons_hotkey || '(', showEmoticonChooser);
+
           if(options.probably_nsfw) {
             $('body').addClass('probably-nsfw');
           }

@@ -1,37 +1,50 @@
 describe('Chromed', function() {
-  var chooser = null;
-
   beforeEach(function() {
     loadFixtures('chromed.html');
-    chooser = jasmine.createSpyObj('chooser', ['show', 'hide', 'wasImmediatelyClosed', 'reset'])
-    chooser.wasImmediatelyClosed.and.returnValue(false);
-    new ChromedHipchatExtension.Chromed(chooser).initialize();
+    this.chooser = jasmine.createSpyObj('chooser', ['show', 'hide', 'wasImmediatelyClosed', 'reset'])
+    this.chooser.wasImmediatelyClosed.and.returnValue(false);
   });
 
-  it('hides emoticon chooser when escape is pressed', function() {
-    pressEscapeKey();
-    expect(chooser.hide).toHaveBeenCalled();
+  describe('with default options', function() {
+    beforeEach(function() {
+      new ChromedHipchatExtension.Chromed(this.chooser).initialize();
+    });
+
+    it('hides emoticon chooser when escape is pressed', function() {
+      pressEscapeKey();
+      expect(this.chooser.hide).toHaveBeenCalled();
+    });
+
+    it('shows emoticon chooser when hotkey is pressed', function() {
+      pressEmoticonChooserHotkey();
+      expect(this.chooser.show).toHaveBeenCalled();
+    });
+
+    it('ignores the emoticon chooser hotkey if it was immediately closed the last time it was shown', function() {
+      this.chooser.wasImmediatelyClosed.and.returnValue(true);
+      pressEmoticonChooserHotkey()
+      expect(this.chooser.show).not.toHaveBeenCalled();
+      expect(this.chooser.reset).toHaveBeenCalled();
+    });
+
+    function pressEscapeKey() {
+      triggerKeydown(27);
+    }
+
+    function pressEmoticonChooserHotkey() {
+      triggerKeydown(57, true);
+    }
   });
 
-  it('shows emoticon chooser when hotkey is pressed', function() {
-    pressEmoticonChooserHotkey();
-    expect(chooser.show).toHaveBeenCalled();
+  it('allows changing of the emoticons hotkey', function() {
+    spyOn(chrome.extension, 'sendMessage').and.callFake(function(message, callback) {
+      callback({emoticons_hotkey: 'e'});
+    });
+
+    new ChromedHipchatExtension.Chromed(this.chooser).initialize();
+    triggerKeydown(101)
+    expect(this.chooser.show).toHaveBeenCalled();
   });
-
-  it('ignores the emoticon chooser hotkey if it was immediately closed the last time it was shown', function() {
-    chooser.wasImmediatelyClosed.and.returnValue(true);
-    pressEmoticonChooserHotkey()
-    expect(chooser.show).not.toHaveBeenCalled();
-    expect(chooser.reset).toHaveBeenCalled();
-  });
-
-  function pressEscapeKey() {
-    triggerKeydown(27);
-  }
-
-  function pressEmoticonChooserHotkey() {
-    triggerKeydown(57, true);
-  }
 
   function triggerKeydown(keyCode, shiftKey) {
     var e = $.Event('keydown');
