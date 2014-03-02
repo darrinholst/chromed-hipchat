@@ -22,7 +22,7 @@
         }
 
         chrome.extension.sendMessage({command: 'setOptions', options: options}, function() {
-          showMessage('Options Saved');
+          showMessage('Got \'em');
         });
       },
 

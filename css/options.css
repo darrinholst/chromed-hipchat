@@ -1,6 +1,11 @@
 body {
   margin: 0 30px;
   font-family: Helvetica, sans-serif;
+  color: #333;
+}
+
+h2 {
+  margin-top: 30px;
 }
 
 p.description {
@@ -19,5 +24,6 @@ input[type=text] {
 
 button {
   padding: 5px 10px;
+  font-size: 1em;
 }
 

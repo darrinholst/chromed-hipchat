@@ -9,3 +9,8 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
   }
 })
 
+if(!localStorage['installed_at']) {
+  chrome.tabs.create({url: 'html/options.html'});
+  localStorage['installed_at'] = new Date().getTime();
+}
+
