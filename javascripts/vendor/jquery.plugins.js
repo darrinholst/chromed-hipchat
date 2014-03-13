@@ -126,7 +126,7 @@ jQuery.fn.putCursorAtEnd = function() {
 
       if ( character ) {
         possible[ modif + character ] = true;
-        possible[ modif + jQuery.hotkeys.shiftNums[ character ] ] = true;
+        //possible[ modif + jQuery.hotkeys.shiftNums[ character ] ] = true;
 
         // "$" can be triggered as "Shift+4" or "Shift+$" or just "$"
         if ( modif === "shift+" ) {
